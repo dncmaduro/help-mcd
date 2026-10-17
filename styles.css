@@ -1,0 +1,157 @@
+:root {
+  --background: #f5f2eb;
+  --surface: #fffefa;
+  --text: #20231f;
+  --muted: #74766f;
+  --line: #ded9cf;
+  --purple: #8a6caf;
+  --green: #7da276;
+  --blue: #7893b0;
+  --brown: #a47d62;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 28px 24px 48px;
+}
+
+.intro {
+  align-items: baseline;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 76px 0 42px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 8vw, 5.4rem);
+  line-height: 0.95;
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.project-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  min-height: 190px;
+  padding: 22px 24px 20px;
+  text-decoration: none;
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  box-shadow: 0 12px 28px rgba(42, 37, 27, 0.08);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+.project-card:focus-visible {
+  box-shadow: 0 0 0 3px rgba(32, 35, 31, 0.16), 0 12px 28px rgba(42, 37, 27, 0.08);
+}
+
+.project-card--purple {
+  --accent: var(--purple);
+}
+
+.project-card--green {
+  --accent: var(--green);
+}
+
+.project-card--blue {
+  --accent: var(--blue);
+}
+
+.project-card--brown {
+  --accent: var(--brown);
+}
+
+h2 {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  line-height: 1.05;
+  margin: 0 0 14px;
+}
+
+.project-card > p {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+  max-width: 390px;
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 20px 16px 32px;
+  }
+
+  .intro {
+    align-items: flex-start;
+    display: block;
+    padding: 58px 0 32px;
+  }
+
+  .intro p {
+    margin-top: 18px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    min-height: 180px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
